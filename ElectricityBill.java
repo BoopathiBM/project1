@@ -7,11 +7,19 @@ public class ElectricityBill {
         int unit = scanner.nextInt();
         ElectricityBill electricitybill = new ElectricityBill();
         int bill = electricitybill.calculateBill(unit);
-        System.out.println("bill amount for " + unit + " unit is: " + bill);
-        bill = electricitybill.calBill(unit);
-        System.out.println(" method 2 bill amount for " + unit + " unit is: " + bill);
-
+        System.out.println("mention that commercial or not ");
+        System.out.print("enter true / false :   ");
+        boolean answer = scanner.nextBoolean();
+        if(answer){
+            bill *= 1.5;
+            System.out.println("bill amount for " + unit + " unit is: " + bill);
+        }
+        else{
+            System.out.println("bill amount for " + unit + " unit is: " + bill);
+        }
+        scanner.close();
     }
+
 
     public int calculateBill(int unit) {
         int bill = 0;
@@ -29,21 +37,5 @@ public class ElectricityBill {
         return bill;
 
     }
-
-    public int calBill(int unit) {
-        int bill = 0;
-        for (int i = 1; i <= unit; i++) {
-            if (i <= 100) {
-                bill += 5;
-            }
-            if (i > 100 && i <= 200) {
-                bill += 7;
-            }
-            if (i > 200) {
-                bill += 10;
-            }
-        }
-        return bill;
-
-    }
+    
 }
