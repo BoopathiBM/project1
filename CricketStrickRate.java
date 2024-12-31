@@ -1,3 +1,12 @@
+/* Calculate Cricket Strike Rate
+==============================
+Write a Java program to calculate the strike rate of a batsman given the runs scored and balls faced.
+Example:
+	•	Input: Runs = 60, Balls = 30
+	•	Output: Strike Rate = 200.0
+
+*/
+
 import java.util.Scanner;
 
 public class CricketStrickRate{
