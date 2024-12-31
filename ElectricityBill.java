@@ -5,6 +5,7 @@ public class ElectricityBill {
     private int noOfUnits;
     private boolean isCommercial;
     private double billAmount;
+    private boolean latePayment;
 
     public static void main(String[] args) {
         ElectricityBill electricitybill = new ElectricityBill();
@@ -20,6 +21,8 @@ public class ElectricityBill {
         System.out.println("mention that commercial or not ");
         System.out.print("enter true / false :   ");
         this.isCommercial = scanner.nextBoolean();
+        System.out.println("is overdue (true / false)");
+        this.latePayment = scanner.nextBoolean();
         scanner.close();
     }
 
@@ -29,6 +32,24 @@ public class ElectricityBill {
         } else {
             this.billAmount = this.retailBill();
         }
+        this.addFixedCharges();
+        if (this.noOfUnits <= 150) {
+            this.ecoFriendlyDiscount();
+        }
+        if (latePayment) {
+            this.billAmount += 150;
+        }
+    }
+
+    public void addFixedCharges() {
+        int maintanance = 100;
+        this.billAmount += maintanance;
+
+    }
+
+    public void ecoFriendlyDiscount() {
+        double discount = this.billAmount * 0.1;
+        this.billAmount = this.billAmount - discount;
     }
 
     public void printBill() {
@@ -36,6 +57,7 @@ public class ElectricityBill {
         System.out.println("****************************************");
         System.out.println("No of units consumed  : " + this.noOfUnits);
         System.out.println("Is Commercial         : " + this.isCommercial);
+        System.out.println("is Late Payment       : " + this.latePayment);
         System.out.println("Total Bill Amount     : " + this.billAmount);
         System.out.println("****************************************");
 
