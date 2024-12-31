@@ -1,3 +1,42 @@
+/*
+ * 1. Electricity Bill Calculator
+=============================
+Create a program to calculate the electricity bill based on the following slab rates:
+	•	₹5 per unit for the first 100 units
+	•	₹7 per unit for the next 100 units
+	•	₹10 per unit for units above 200
+
+Example:
+	•	Input: Units = 250
+	•	Output: Bill = ₹1750
+
+    Additional Complexities:
+	1.	Commercial or Residential Multiplier:
+If the electricity consumption is for commercial purposes, the total bill is increased by 50% to account for higher rates for businesses. 
+Users should indicate whether the usage is residential or commercial.
+	2.	Fixed Charges:
+A base fixed charge of ₹100 is added to all bills for maintenance costs.
+	3.	Eco-Friendly Discount:
+If the total units consumed are 150 or less, a 10% discount is applied to encourage energy conservation.
+	4.	Late Payment Fee:
+If the payment is overdue, a penalty of ₹150 is added.
+Example:
+
+Input:
+
+	•	Units = 250
+	•	Commercial = Yes
+	•	Payment Overdue = Yes
+	•	Eco-Friendly Discount = No
+
+Output:
+
+	•	Bill = ₹4025
+ */
+
+
+
+
 import java.util.Scanner;
 
 public class ElectricityBill {
