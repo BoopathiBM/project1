@@ -5,9 +5,11 @@ public class ElectricityBill{
         Scanner scanner = new Scanner(System.in);
         System.out.println("enter the unit: ");
         int unit = scanner.nextInt();
-        CalculateBill(unit);
+        ElectricityBill electricitybill = new ElectricityBill();
+        int bill = electricitybill.calculateBill(unit);
+        System.out.println("bill amount for "+ unit + " unit is: "+ bill);
     }
-    public static void CalculateBill(int unit){
+    public int calculateBill(int unit){
         int bill = 0;
         for(int i=1;i<=unit;i++){
             if(i<=100){
@@ -20,6 +22,7 @@ public class ElectricityBill{
                 bill +=10;
             }
         }
-        System.out.println("bill amount for "+ unit + " unit is: "+ bill);
+        return bill;
+        
     }
 }
