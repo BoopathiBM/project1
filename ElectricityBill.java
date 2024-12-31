@@ -1,28 +1,54 @@
 import java.util.Scanner;
 
 public class ElectricityBill {
+
+    private int noOfUnits;
+    private boolean isCommercial;
+    private double billAmount;
+
     public static void main(String[] args) {
+        ElectricityBill electricitybill = new ElectricityBill();
+        electricitybill.readInput();
+        electricitybill.calculateBill();
+        electricitybill.printBill();
+    }
+
+    private void readInput() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("enter the unit: ");
-        int unit = scanner.nextInt();
-        ElectricityBill electricitybill = new ElectricityBill();
-        int bill = electricitybill.calculateBill(unit);
+        this.noOfUnits = scanner.nextInt();
         System.out.println("mention that commercial or not ");
         System.out.print("enter true / false :   ");
-        boolean answer = scanner.nextBoolean();
-        if(answer){
-            bill *= 1.5;
-            System.out.println("bill amount for " + unit + " unit is: " + bill);
-        }
-        else{
-            System.out.println("bill amount for " + unit + " unit is: " + bill);
-        }
+        this.isCommercial = scanner.nextBoolean();
         scanner.close();
     }
 
+    public void calculateBill() {
+        if (isCommercial) {
+            this.billAmount = this.commercialBill();
+        } else {
+            this.billAmount = this.retailBill();
+        }
+    }
 
-    public int calculateBill(int unit) {
+    public void printBill() {
+
+        System.out.println("****************************************");
+        System.out.println("No of units consumed  : " + this.noOfUnits);
+        System.out.println("Is Commercial         : " + this.isCommercial);
+        System.out.println("Total Bill Amount     : " + this.billAmount);
+        System.out.println("****************************************");
+
+    }
+
+    public double commercialBill() {
+        double commercialbill = retailBill() * (int) 1.5;
+        return commercialbill;
+    }
+
+    public int retailBill() {
         int bill = 0;
+        int unit = this.noOfUnits;
         if (unit <= 0) {
             bill = 0;
         } else if (unit <= 100) {
@@ -37,5 +63,5 @@ public class ElectricityBill {
         return bill;
 
     }
-    
+
 }
