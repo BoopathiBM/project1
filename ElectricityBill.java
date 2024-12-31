@@ -54,12 +54,12 @@ public class ElectricityBill {
 
     public void printBill() {
 
-        System.out.println("****************************************");
+        System.out.println("************* Electricity Bill *************************");
         System.out.println("No of units consumed  : " + this.noOfUnits);
         System.out.println("Is Commercial         : " + this.isCommercial);
         System.out.println("is Late Payment       : " + this.latePayment);
         System.out.println("Total Bill Amount     : " + this.billAmount);
-        System.out.println("****************************************");
+        System.out.println("********************************************************");
 
     }
 
